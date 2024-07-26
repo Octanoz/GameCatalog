@@ -1,0 +1,146 @@
+﻿@page "/"
+
+@inject GamesClient Client
+
+<PageTitle>Game Catalog</PageTitle>
+
+<section id="games-table-section">
+    <a class="button-style" href="/editgame">New Game</a>
+    <table class="games-table">
+        <thead class="table-header">
+            <th class="text-center">Id</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th class="text-center">Price</th>
+            <th>Release Date</th>
+            <th>Icons</th>
+        </thead>
+        <tbody>
+            @if (games is null)
+            {
+                <p class="loading text-bold"><em>Loading...</em></p>
+            }
+            else
+            {
+                @foreach (var game in games)
+                {
+                    <tr>
+                        <td class="text-center">@game.Id</td>
+                        <td>@game.Name</td>
+                        <td>@game.Genre</td>
+                        <td class="text-center">@game.Price.ToString("C2")</td>
+                        <td>@game.ReleaseDate</td>
+                        <td>
+                            <a href="editgame/@game.Id" role="button"><i>@editIcon</i></a>
+                            <div class="delete-game" role="button"
+                                onclick="document.getElementById('confirmation@(game.Id)').showModal()">
+                                <i>@rejectedIcon</i>
+                            </div>
+                        </td>
+                    </tr>
+                    <dialog id="confirmation@(game.Id)" @onclose="ResetDisabled">
+                        <div class="content-row">
+                            <i>@rejectedIcon</i>
+                            <p>Are you sure you want to delete @game.Name from the catalog?</p>
+                        </div>
+
+                        @if (message is not null)
+                        {
+                            <p>@message</p>
+                        }
+
+                        <form method="dialog">
+                            <div class="button-row">
+                                @if (disableButton)
+                                {
+                                    <button class="button" disabled>Confirm</button>
+                                }
+                                else
+                                {
+                                    <button class="button" @onclick="() => ConfirmDelete(game.Id)">Confirm</button>
+                                }
+                                <button class="button"
+                                    onclick="document.getElementById('confirmation@(game.Id)').close()">Close</button>
+                            </div>
+                        </form>
+                    </dialog>
+                }
+            }
+        </tbody>
+    </table>
+
+</section>
+
+
+
+@code {
+    private GameSummary[]? games;
+    private GameSummary? gameToDelete;
+
+    private string? message;
+    private bool disableButton = false;
+
+
+    protected override void OnInitialized()
+    {
+        games = Client.GetGames();
+    }
+
+    private void ConfirmDelete(int id)
+    {
+        var gameToDelete = games.First(g => g.Id == id);
+        Client.DeleteGame(id);
+        games = Client.GetGames();
+        message = $"Deleted {gameToDelete}";
+        disableButton = true;
+        StateHasChanged();
+    }
+
+    void ResetDisabled() => disableButton = false;
+
+
+
+    private RenderFragment editIcon = @<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 122.88"
+        style="enable-background:new 0 0 122.88 122.88" xml:space="preserve">
+        <style type="text/css">
+            .circle {
+                fill: blue;
+            }
+
+            .pencil {
+                fill: white;
+            }
+        </style>
+        <g>
+            <path class="circle"
+                d="M61.44,0c33.93,0,61.44,27.51,61.44,61.44c0,33.93-27.51,61.44-61.44,61.44S0,95.37,0,61.44 C0,27.51,27.51,0,61.44,0L61.44,0z" />
+            <path class="pencil"
+                d="M52.56,84c-1.82,0.61-3.68,1.17-5.5,1.77c-1.82,0.61-3.64,1.21-5.5,1.82 c-4.34,1.4-6.71,2.19-7.23,2.33c-0.51,0.14-0.19-1.86,0.89-6.06l3.45-13.19l26.01-27.04l13.85,13.33L52.56,84L52.56,84L52.56,84z M78.48,33.84c-0.65-0.61-1.4-0.93-2.24-0.89c-0.84,0-1.59,0.33-2.19,0.98l-4.94,5.13l13.85,13.38l4.99-5.22 c0.61-0.61,0.84-1.4,0.84-2.24c0-0.84-0.33-1.63-0.93-2.19L78.48,33.84L78.48,33.84L78.48,33.84z" />
+        </g>
+    </svg>;
+
+    private RenderFragment rejectedIcon = @<svg version="1.1" id="svg1" width="3498.6667" height="3498.6667"
+        viewBox="0 0 3498.6667 3498.6667" sodipodi:docname="rejected.svg" inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+        <defs id="defs1" />
+        <sodipodi:namedview id="namedview1" pagecolor="#505050" bordercolor="#ffffff" borderopacity="1"
+            inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="1" inkscape:deskcolor="#505050"
+            inkscape:zoom="0.33527057" inkscape:cx="1747.842" inkscape:cy="1749.3334" inkscape:window-width="2560"
+            inkscape:window-height="1369" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1"
+            inkscape:current-layer="g1" />
+        <g inkscape:groupmode="layer" inkscape:label="Image" id="g1">
+            <path style="fill:#000000"
+                d="m 1676.2121,3496.5941 c -153.7842,-7.6301 -310.3323,-37.1475 -458.6667,-86.4822 C 841.02154,3284.8834 515.90131,3032.8132 299.92288,2698.6667 244.07341,2612.2604 193.64615,2516.495 154.23834,2422.0001 91.901412,2272.524 49.684742,2109.78 31.626092,1949.3334 c -14.4505,-128.3892 -14.4505,-271.6109 0,-400 C 81.093972,1109.8234 298.91221,702.66091 638.87868,414.2103 791.58268,284.64587 967.95841,180.88897 1154.8787,110.66196 1287.255,60.927435 1430.464,26.476415 1570.2121,10.747435 c 128.3891,-14.4505002 271.6108,-14.4505002 400,0 439.5099,49.46788 846.6724,267.286115 1135.1231,607.252585 129.5644,152.70401 233.3213,329.07973 303.5483,515.99998 49.7345,132.3763 84.1855,275.5853 99.9145,415.3334 14.4505,128.3891 14.4505,271.6108 0,400 -49.4671,439.5033 -267.2912,846.6768 -607.2526,1135.1231 -152.704,129.5644 -329.0797,233.3213 -516,303.5483 -147.3854,55.3735 -300.5406,90.0768 -461.7226,104.6212 -64.7409,5.842 -174.4187,7.5996 -247.6107,3.9681 z m -231.0065,-1168.257 325.0065,-324.9962 325.0064,324.9962 c 178.7536,178.748 325.3048,324.9963 325.6694,324.9963 0.3645,0 57.6596,-56.9991 127.3223,-126.6648 l 126.6595,-126.6647 -325.3251,-325.3353 -325.325,-325.3352 324.9962,-325.0065 c 178.748,-178.7536 324.9963,-325.3047 324.9963,-325.6693 0,-0.3646 -56.9991,-57.6596 -126.6648,-127.32231 l -126.6647,-126.65949 -325.3353,325.325 -325.3352,325.3251 -325.0065,-324.9963 C 1266.452,991.58168 1119.9009,845.33336 1119.5363,845.33336 c -0.3646,0 -57.6596,56.99914 -127.32235,126.66475 l -126.6595,126.66469 325.32505,325.3353 325.3251,325.3353 -325.3251,325.3352 -325.32505,325.3353 126.6595,126.6647 c 69.66275,69.6657 126.95775,126.6648 127.32235,126.6648 0.3646,0 146.9157,-146.2483 325.6693,-324.9963 z"
+                id="path1" />
+            <path style="fill:#ffffff;stroke-width:2.98267"
+                d="M 993.96813,2525.5671 867.96357,2399.5363 1193.0702,2074.44 1518.1768,1749.3436 1193.0622,1424.2188 867.94761,1099.094 993.97834,973.08947 1120.0091,847.08491 l 325.0963,325.10659 325.0964,325.1067 325.1248,-325.1146 325.1248,-325.11465 126.0045,126.03073 126.0046,126.03072 -325.1066,325.0964 -325.1067,325.0964 325.1147,325.1248 325.1146,325.1247 -126.0308,126.0046 -126.0307,126.0045 -325.0964,-325.1066 -325.0964,-325.1066 -325.1247,325.1146 -325.1248,325.1146 z"
+                id="path2" />
+            <path style="fill:#800000;stroke-width:2.98267"
+                d="M 1617.0615,3491.0988 C 1255.2346,3458.2967 925.75405,3321.0711 642.76444,3085.3128 593.93784,3044.6355 479.17779,2930.3391 437.87884,2881.255 207.09219,2606.963 68.015128,2281.5583 31.223201,1929.7846 21.573601,1837.5232 20.812686,1670.9222 29.636159,1582.3041 65.226649,1224.8529 201.46046,901.4484 434.21136,621.88578 474.55352,573.42981 588.80506,458.75533 638.29044,417.05116 897.59125,198.52349 1207.9648,60.317316 1537.5641,16.613744 c 157.1826,-20.8417955 342.3479,-19.2087631 497.7908,4.390178 247.5283,37.579102 481.8938,128.090648 698.2581,269.666008 49.6925,32.51567 117.0814,83.04175 168.5206,126.35143 47.5849,40.06454 159.4763,151.997 200.317,200.39042 256.1099,303.47349 401.477,677.57402 413.7617,1064.81162 6.9418,218.8184 -18.877,408.5382 -82.1274,603.4832 -70.7417,218.0335 -177.6178,410.6929 -327.8934,591.0744 -41.8966,50.2903 -155.6545,164.2393 -207.0405,207.3886 -284.7895,239.14 -631.4535,381.2896 -996.2103,408.4966 -55.4524,4.1361 -233.748,3.1587 -285.8792,-1.5674 z M 1443.6102,2330.9532 c 177.9849,-177.9906 324.9511,-323.6193 326.5916,-323.6193 1.6405,0 148.9493,145.9621 327.3531,324.3602 l 324.3703,324.3601 127.5039,-127.5038 127.5038,-127.5038 -324.3602,-324.3704 c -178.398,-178.4037 -324.3601,-325.708 -324.3601,-327.3428 0,-1.6349 145.9621,-148.9391 324.3601,-327.3429 L 2676.9329,1097.6202 2549.4291,970.11634 2421.9252,842.61252 2097.5549,1166.9727 c -178.4038,178.398 -325.708,324.3601 -327.3429,324.3601 -1.6348,0 -148.9391,-145.9621 -327.3428,-324.3601 L 1118.4988,842.61252 990.995,970.11634 863.49118,1097.6202 1187.8513,1421.9905 c 178.3981,178.4038 324.3602,325.708 324.3602,327.3429 0,1.6348 -145.9601,148.9371 -324.3558,327.3384 l -324.35573,324.366 126.74098,126.7673 c 69.70755,69.722 127.42035,126.7673 128.25065,126.7673 0.8303,0 147.1336,-145.6287 325.1186,-323.6192 z"
+                id="path3" />
+        </g>
+    </svg>;
+}

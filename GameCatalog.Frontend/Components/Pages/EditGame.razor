@@ -1,0 +1,114 @@
+﻿@page "/editgame"
+@page "/editgame/{Id:int}"
+
+@inject NavigationManager NavigationManager
+@inject GamesClient Client
+
+<PageTitle>@pageTitle</PageTitle>
+
+@if (genres is null || game is null)
+{
+    <p class="text-bold"><em>Loading...</em></p>
+}
+else
+{
+    <section id="edit-game-container">
+
+        <EditForm Model="game" FormName="EditGameForm" OnValidSubmit="HandleSubmit">
+            <DataAnnotationsValidator />
+            <div class="edit-game-form flow">
+                <h2>@header</h2>
+                <div class="form-field">
+                    <label for="name">Name:</label>
+                    @if (Id is not null)
+                    {
+                        <InputText class="form-control" id="name" disabled @bind-Value="game.Name" />
+                    }
+                    else
+                    {
+                        <InputText class="form-control" id="name" @bind-Value="game.Name" />
+                    }
+                    <ValidationMessage For="() => game.Name" />
+                </div>
+                <div class="form-field">
+                    <label for="genre">Genre:</label>
+                    <InputSelect class="form-select" id="genre" @bind-Value="game.GenreId">
+                        <option value="-1">- Select a genre -</option>
+                        @foreach (var genre in genres)
+                        {
+                            <option value="@(genre.id)">@genre.name</option>
+                        }
+                    </InputSelect>
+                    <ValidationMessage For="() => game.GenreId" />
+                </div>
+                <div class="form-field">
+                    <label for="price">Price:</label>
+                    <InputNumber class="form-control" id="price" @bind-Value="game.Price" />
+                    <ValidationMessage For="() => game.Price" />
+                </div>
+                <div class="form-field">
+                    <label for="release-date">Release Date:</label>
+                    @if (Id is not null)
+                    {
+                        <InputDate class="form-control" id="release-date" disabled @bind-Value="game.ReleaseDate" />
+                    }
+                    else
+                    {
+                        <InputDate class="form-control" id="release-date" @bind-Value="game.ReleaseDate" />
+                    }
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="button submit-button">Submit</button>
+                    <a class="button-style cancel-button" href="/">Cancel</a>
+                </div>
+            </div>
+        </EditForm>
+    </section>
+}
+
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+
+    [SupplyParameterFromForm]
+    private GameDetails? game { get; set; }
+
+    private string pageTitle = "Add game";
+    private string header = "Add A New Game";
+    (int id, string name)[]? genres;
+
+    protected override void OnParametersSet()
+    {
+        if (game is not null)
+            return;
+
+        if (Id is not null)
+        {
+            game = Client.GetGame(Id.Value);
+            pageTitle = "Edit game";
+            header = $"Edit {game.Name}";
+        }
+        else
+        {
+            game = new()
+                {
+                    Name = String.Empty,
+                    ReleaseDate = DateOnly.FromDateTime(DateTime.UtcNow)
+                };
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        genres = Enum.GetValues<Genre>()
+        .Zip(Enum.GetNames<Genre>(), (id, name) => ((int)id, name.Replace("_", " & ")))
+        .ToArray();
+    }
+
+    void HandleSubmit()
+    {
+        ArgumentNullException.ThrowIfNull(game);
+        Client.AddGame(game);
+        NavigationManager.NavigateTo("/");
+    }
+}
