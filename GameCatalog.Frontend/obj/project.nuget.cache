@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tBi9ERXlevY=",
+  "dgSpecHash": "1AHRnTX3eFo=",
   "success": true,
-  "projectFilePath": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\GameCatalog.Frontend.csproj",
+  "projectFilePath": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\GameCatalog.Frontend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rheye\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.7\\microsoft.aspnetcore.authorization.8.0.7.nupkg.sha512",
     "C:\\Users\\rheye\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.7\\microsoft.aspnetcore.components.8.0.7.nupkg.sha512",

@@ -160,6 +160,18 @@ h1:focus {
     border-inline: 1px solid currentColor;
 }
 
+/* Main Wrapper */
+
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 1fr min(1100px, 100% - calc(var(--spacer-triple) * 2)) 1fr;
+    padding-top: var(--spacer-double);
+
+    &>* {
+        grid-column: 2;
+    }
+}
+
 /* Home.razor */
 /* games table a */
 
@@ -223,11 +235,11 @@ h1:focus {
         }
 
         @container (width < 600px) {
-            & .table-header th:is(:first-child, :nth-child(2), :nth-last-child(2)) {
+            & .table-header th:is(:first-child, :nth-child(3), :nth-last-child(2)) {
                 display: none;
             }
 
-            & tbody tr td:is(:first-child, :nth-child(2), :nth-last-child(2)) {
+            & tbody tr td:is(:first-child, :nth-child(3), :nth-last-child(2)) {
                 display: none;
             }
 
@@ -240,6 +252,13 @@ h1:focus {
             }
         }
     }
+}
+
+.message {
+    width: max-content;
+    margin: 20px;
+    color: #000;
+    background: #ccc;
 }
 
 /* games table z */
@@ -327,7 +346,7 @@ h1:focus {
 }
 
 dialog {
-    height: 140px;
+    height: max-content;
     margin: 100px auto;
     padding: 10px 20px;
     border-radius: 10px;
@@ -344,6 +363,7 @@ dialog {
 
     & p {
         max-width: 40ch;
+        padding-block: var(--spacer-half);
     }
 
     & i>* {

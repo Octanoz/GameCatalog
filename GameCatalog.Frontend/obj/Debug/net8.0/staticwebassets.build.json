@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "L1GfZeE4YyPIoIM7J3cMv8+8DHxog5KaCy9EUgehfKQ=",
+  "Hash": "BZG9He4DoUoiqg1dJyneoECTYCQmfrYZiAxaR2AFtUI=",
   "Source": "GameCatalog.Frontend",
   "BasePath": "_content/GameCatalog.Frontend",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "GameCatalog.Frontend\\wwwroot",
       "Source": "GameCatalog.Frontend",
-      "ContentRoot": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
       "BasePath": "_content/GameCatalog.Frontend",
       "Pattern": "**"
     }
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "C:\\Users\\rheye\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.7\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GameCatalog.Frontend.styles.css",
+      "Identity": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GameCatalog.Frontend.styles.css",
       "SourceId": "GameCatalog.Frontend",
       "SourceType": "Computed",
-      "ContentRoot": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/GameCatalog.Frontend",
       "RelativePath": "GameCatalog.Frontend.styles.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GameCatalog.Frontend.styles.css"
+      "OriginalItemSpec": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\GameCatalog.Frontend.styles.css"
     },
     {
-      "Identity": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GameCatalog.Frontend.bundle.scp.css",
+      "Identity": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GameCatalog.Frontend.bundle.scp.css",
       "SourceId": "GameCatalog.Frontend",
       "SourceType": "Computed",
-      "ContentRoot": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/GameCatalog.Frontend",
       "RelativePath": "GameCatalog.Frontend.bundle.scp.css",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GameCatalog.Frontend.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\GameCatalog.Frontend.bundle.scp.css"
     },
     {
-      "Identity": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\app.css",
       "SourceId": "GameCatalog.Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
       "BasePath": "_content/GameCatalog.Frontend",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\svg\\edit-round-icon.svg",
+      "Identity": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\svg\\edit-round-icon.svg",
       "SourceId": "GameCatalog.Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
       "BasePath": "_content/GameCatalog.Frontend",
       "RelativePath": "svg/edit-round-icon.svg",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\svg\\edit-round-icon.svg"
     },
     {
-      "Identity": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\svg\\edit.svg",
+      "Identity": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\svg\\edit.svg",
       "SourceId": "GameCatalog.Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
       "BasePath": "_content/GameCatalog.Frontend",
       "RelativePath": "svg/edit.svg",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\svg\\edit.svg"
     },
     {
-      "Identity": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\svg\\rejected.svg",
+      "Identity": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\svg\\rejected.svg",
       "SourceId": "GameCatalog.Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "c:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\rheye\\source\\repos\\VSCode\\Blazor\\GameCatalog\\GameCatalog.Frontend\\wwwroot\\",
       "BasePath": "_content/GameCatalog.Frontend",
       "RelativePath": "svg/rejected.svg",
       "AssetKind": "All",

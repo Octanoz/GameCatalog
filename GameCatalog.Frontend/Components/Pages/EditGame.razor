@@ -27,8 +27,8 @@ else
                     else
                     {
                         <InputText class="form-control" id="name" @bind-Value="game.Name" />
+                        <ValidationMessage For="() => game.Name" />
                     }
-                    <ValidationMessage For="() => game.Name" />
                 </div>
                 <div class="form-field">
                     <label for="genre">Genre:</label>
@@ -108,7 +108,17 @@ else
     void HandleSubmit()
     {
         ArgumentNullException.ThrowIfNull(game);
-        Client.AddGame(game);
+
+        if (Id is null)
+        {
+            Client.AddGame(game);
+        }
+        else
+        {
+            game.Id = Id.Value;
+            Client.UpdateGame(game);
+        }
+
         NavigationManager.NavigateTo("/");
     }
 }

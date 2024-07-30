@@ -41,7 +41,7 @@ public class GamesClient
     {
         GameSummary existingGame = GetGameSummaryById(updatedGame.Id);
 
-        existingGame.Genre = ConvertEnumNameToString(((Genre)updatedGame.GenreId).ToString());
+        existingGame.Genre = ConvertEnumNameToGenre(((Genre)updatedGame.GenreId).ToString());
         existingGame.Price = updatedGame.Price;
     }
 
@@ -54,8 +54,8 @@ public class GamesClient
     private GameSummary GetGameSummaryById(int id) => games.Find(x => x.Id == id)
                     ?? throw new ArgumentNullException($"No game found with id: [{id}]");
 
-    static string ConvertEnumNameToString(string genre) => genre.Replace(" & ", "_");
-    static string ConvertToEnumName(string genre) => genre.Replace(" & ", "_");
-    static int GetGenreId(string genre) => Enum.GetNames<Genre>().ToList().IndexOf(ConvertToEnumName(genre)) + 1;
+    static string ConvertEnumNameToGenre(string genre) => genre.Replace(" & ", "_");
+    static string ConvertGenreToEnumName(string genre) => genre.Replace(" & ", "_");
+    static int GetGenreId(string genre) => Enum.GetNames<Genre>().ToList().IndexOf(ConvertGenreToEnumName(genre)) + 1;
 
 }

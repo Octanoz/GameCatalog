@@ -1,6 +1,7 @@
 ﻿@page "/"
 
 @inject GamesClient Client
+@rendermode InteractiveServer
 
 <PageTitle>Game Catalog</PageTitle>
 
@@ -44,61 +45,55 @@
                             <p>Are you sure you want to delete @game.Name from the catalog?</p>
                         </div>
 
-                        @if (message is not null)
-                        {
-                            <p>@message</p>
-                        }
+                        <p class="text-center"><em>@message</em></p>
 
-                        <form method="dialog">
-                            <div class="button-row">
-                                @if (disableButton)
-                                {
-                                    <button class="button" disabled>Confirm</button>
-                                }
-                                else
-                                {
-                                    <button class="button" @onclick="() => ConfirmDelete(game.Id)">Confirm</button>
-                                }
-                                <button class="button"
-                                    onclick="document.getElementById('confirmation@(game.Id)').close()">Close</button>
-                            </div>
-                        </form>
+                        <div class="button-row">
+                            @if (notConfirmed)
+                            {
+                                <button class="button" @onclick="() => DeleteGame(game.Id)">Confirm</button>
+                            }
+                            <button class="button"
+                                onclick="document.getElementById('confirmation@(game.Id)').close()">Close</button>
+                        </div>
                     </dialog>
                 }
             }
         </tbody>
     </table>
-
 </section>
-
 
 
 @code {
     private GameSummary[]? games;
     private GameSummary? gameToDelete;
+    private DeleteModal? deleteModal;
+    private string message = "Confirm or Close";
 
-    private string? message;
-    private bool disableButton = false;
-
+    private bool notConfirmed = true;
 
     protected override void OnInitialized()
     {
         games = Client.GetGames();
     }
 
-    private void ConfirmDelete(int id)
+    private void DeleteGame(int gameId)
     {
-        var gameToDelete = games.First(g => g.Id == id);
-        Client.DeleteGame(id);
-        games = Client.GetGames();
-        message = $"Deleted {gameToDelete}";
-        disableButton = true;
-        StateHasChanged();
+        var gameToDelete = Array.Find(games!, g => g.Id == gameId);
+        if (gameToDelete is not null)
+        {
+            Client.DeleteGame(gameId);
+            message = $"{gameToDelete.Name} has been deleted";
+            notConfirmed = false;
+            games = Client.GetGames();
+            StateHasChanged();
+        }
     }
 
-    void ResetDisabled() => disableButton = false;
-
-
+    private void ResetDisabled()
+    {
+        notConfirmed = true;
+        message = String.Empty;
+    }
 
     private RenderFragment editIcon = @<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 122.88 122.88"

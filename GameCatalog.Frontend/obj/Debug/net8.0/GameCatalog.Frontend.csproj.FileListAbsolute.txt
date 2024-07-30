@@ -38,3 +38,4 @@ C:\Users\rheye\source\repos\VSCode\Blazor\GameCatalog\GameCatalog.Frontend\bin\D
 C:\Users\rheye\source\repos\VSCode\Blazor\GameCatalog\GameCatalog.Frontend\bin\Debug\net8.0\Microsoft.JSInterop.dll
 C:\Users\rheye\source\repos\VSCode\Blazor\GameCatalog\GameCatalog.Frontend\obj\Debug\net8.0\GameCatalog.Frontend.csproj.AssemblyReference.cache
 C:\Users\rheye\source\repos\VSCode\Blazor\GameCatalog\GameCatalog.Frontend\obj\Debug\net8.0\GameCata.B44A8623.Up2Date
+C:\Users\rheye\source\repos\VSCode\Blazor\GameCatalog\GameCatalog.Frontend\obj\Debug\net8.0\GameCatalog.Frontend.sourcelink.json

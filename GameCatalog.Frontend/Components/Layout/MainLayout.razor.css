@@ -18,12 +18,6 @@
 }
 
 .main-bg {
+    min-height: 100vh;
     background: var(--bg-main);
-}
-
-.main-wrapper {
-    width: min(1100px, 100% - (var(--spacer-double) * 2));
-    min-height: 100svh;
-    margin-inline: auto;
-    padding-top: var(--spacer-triple);
 }
