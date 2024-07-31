@@ -312,6 +312,10 @@ h1:focus {
     margin-top: 1rem;
 }
 
+.hide {
+    display: none;
+}
+
 .button {
     width: max-content;
     font-size: 0.8rem;

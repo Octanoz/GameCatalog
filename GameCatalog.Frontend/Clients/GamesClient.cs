@@ -20,7 +20,7 @@ public class GamesClient
         {
             Id = games.Count + 1,
             Name = game.Name,
-            Genre = ((Genre)game.GenreId).ToString().Replace("_", " & "),
+            Genre = ConvertEnumNameToGenre(((Genre)game.GenreId).ToString()),
             Price = game.Price,
             ReleaseDate = game.ReleaseDate
         };
@@ -54,8 +54,7 @@ public class GamesClient
     private GameSummary GetGameSummaryById(int id) => games.Find(x => x.Id == id)
                     ?? throw new ArgumentNullException($"No game found with id: [{id}]");
 
-    static string ConvertEnumNameToGenre(string genre) => genre.Replace(" & ", "_");
+    static string ConvertEnumNameToGenre(string genre) => genre.Replace("_", " & ");
     static string ConvertGenreToEnumName(string genre) => genre.Replace(" & ", "_");
     static int GetGenreId(string genre) => Enum.GetNames<Genre>().ToList().IndexOf(ConvertGenreToEnumName(genre)) + 1;
-
 }

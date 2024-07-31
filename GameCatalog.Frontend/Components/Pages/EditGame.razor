@@ -19,16 +19,17 @@ else
             <div class="edit-game-form flow">
                 <h2>@header</h2>
                 <div class="form-field">
-                    <label for="name">Name:</label>
-                    @if (Id is not null)
+                    @if (Id.HasValue)
                     {
-                        <InputText class="form-control" id="name" disabled @bind-Value="game.Name" />
+                        <label for="name" class="hide">Name:</label>
+                        <InputText class="form-control hide" id="name" @bind-Value="game.Name" />
                     }
                     else
                     {
+                        <label for="name">Name:</label>
                         <InputText class="form-control" id="name" @bind-Value="game.Name" />
-                        <ValidationMessage For="() => game.Name" />
                     }
+                    <ValidationMessage For="() => game.Name" />
                 </div>
                 <div class="form-field">
                     <label for="genre">Genre:</label>
@@ -48,14 +49,8 @@ else
                 </div>
                 <div class="form-field">
                     <label for="release-date">Release Date:</label>
-                    @if (Id is not null)
-                    {
-                        <InputDate class="form-control" id="release-date" disabled @bind-Value="game.ReleaseDate" />
-                    }
-                    else
-                    {
-                        <InputDate class="form-control" id="release-date" @bind-Value="game.ReleaseDate" />
-                    }
+                    <InputDate class="form-control" id="release-date" @bind-Value="game.ReleaseDate"
+                        disabled="@Id.HasValue" />
                 </div>
                 <div class="buttons">
                     <button type="submit" class="button submit-button">Submit</button>

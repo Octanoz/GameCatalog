@@ -48,7 +48,7 @@
                         <p class="text-center"><em>@message</em></p>
 
                         <div class="button-row">
-                            @if (notConfirmed)
+                            @if (!isConfirmed)
                             {
                                 <button class="button" @onclick="() => DeleteGame(game.Id)">Confirm</button>
                             }
@@ -69,7 +69,7 @@
     private DeleteModal? deleteModal;
     private string message = "Confirm or Close";
 
-    private bool notConfirmed = true;
+    private bool isConfirmed = false;
 
     protected override void OnInitialized()
     {
@@ -83,7 +83,7 @@
         {
             Client.DeleteGame(gameId);
             message = $"{gameToDelete.Name} has been deleted";
-            notConfirmed = false;
+            isConfirmed = true;
             games = Client.GetGames();
             StateHasChanged();
         }
@@ -91,7 +91,7 @@
 
     private void ResetDisabled()
     {
-        notConfirmed = true;
+        isConfirmed = false;
         message = String.Empty;
     }
 
