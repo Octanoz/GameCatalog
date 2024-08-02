@@ -9,47 +9,47 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GameCatalog.Frontend
 build_property.RootNamespace = GameCatalog.Frontend
-build_property.ProjectDir = C:\Users\rheye\source\repos\VSCode\Blazor\GameCatalog\GameCatalog.Frontend\
+build_property.ProjectDir = c:\Users\rheye\source\repos\VSCode\Blazor\GameCatalog\GameCatalog.Frontend\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\rheye\source\repos\VSCode\Blazor\GameCatalog\GameCatalog.Frontend
+build_property.MSBuildProjectDirectory = c:\Users\rheye\source\repos\VSCode\Blazor\GameCatalog\GameCatalog.Frontend
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/App.razor]
+[c:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Layout/Navbar.razor]
+[c:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Layout/Navbar.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2YmFyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Pages/DeleteModal.razor]
+[c:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Pages/DeleteModal.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEZWxldGVNb2RhbC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Pages/EditGame.razor]
+[c:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Pages/EditGame.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0R2FtZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Pages/Error.razor]
+[c:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Pages/Home.razor]
+[c:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Routes.razor]
+[c:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/_Imports.razor]
+[c:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Layout/MainLayout.razor]
+[c:/Users/rheye/source/repos/VSCode/Blazor/GameCatalog/GameCatalog.Frontend/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-2i62453r9g
